@@ -1,35 +1,51 @@
-:root .theme-dark {
-  --text-color: #00CC14;
-  --main-font-width: 785;
+.page.theme-light {
+  --normal-wght: 400;
+  --bold-wght: 700;
+  
+  --bg-color:  #FFF;
+  --accent-color: #000;
+  --card-button: #FFF;
+  
+  --bg-image: repeating-linear-gradient(to left, #d3d3d3 0 2px, transparent 2px 4px),
+  repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
+  linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+
+  --heart-contour: #000;
+  --label-shadow: #FFF;
+}
+
+
+.page.theme-dark {
+  --normal-wght: 465;
+  --bold-wght: 785;
+
   --bg-color: #000;
   --accent-color: #00CC14;
-  --bg-image: url(../svg/pattern-dark.svg);
+  --card-button: #00CC14;
+  
+  --bg-image: repeating-linear-gradient(to left, #000 0 2px, transparent 2px 4px),
+  repeating-linear-gradient(#000 0 2px, transparent 2px 4px),
+  linear-gradient(#007f0c 0.01%, #004306);
+
+  --heart-contour: #00CC14;
+  --label-shadow: #000;
 }
 
-:root .theme-light {
-  --text-color: #000;
-  --main-font-width: 400;
-  --bg-color: #FFF;
-  --accent-color: #000;
-  --bg-image: url(../svg/pattern-light.svg);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-      --text-color: #000;
-      --main-font-width: 400;
-      --bg-color: #FFF;
-      --accent-color: #000;
-      --bg-image: url(../svg/pattern-light.svg);
-  }
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
-      --text-color: #00CC14;
-      --main-font-width: 785;
-      --bg-color: #000;
-      --accent-color: #00CC14;
-      --bg-image: url(../svg/pattern-dark.svg);
+    --normal-wght: 465;
+    --bold-wght: 785;
+
+    --bg-color: #000;
+    --accent-color: #00CC14;
+    --card-button: #00CC14;
+        
+    --bg-image: repeating-linear-gradient(to left, #000 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(#000 0 2px, transparent 2px 4px),
+    linear-gradient(#007f0c 0.01%, #004306);
+
+    --heart-contour: #00CC14;
+    --label-shadow: #000;
   }
 }
