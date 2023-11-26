@@ -1,20 +1,201 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
-
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+  min-width: 320px;
+  min-height: 100dvb;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-size: 4px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  display: grid;
+  justify-items: center;
+  font-family: var(--main-font-family);
+  font-variation-settings: 'wght' var(--main-font-width)
+
+}
+
+.header {
+  font-family: var(--accent-font-family);
+  background: var(--bg-color);
+  border: 2px solid var(--accent-color);
+  inline-size: var(--width);
+  padding-block-start: clamp(8.5rem, 8.8333rem + -1.4815vw, 7.5rem);
+  padding-block-end: 25px;
+  margin-block-start: 102px;
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.header__title {
+  margin-block-start: -18px;
+  text-transform: uppercase;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__subtitle {
+  text-transform: uppercase;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  margin-block-end: 5px;
+}
+
+.theme-menu__list {
+  display: grid;
+  gap: 12px;
+  margin-inline-start: 20px;
+}
+
+.theme-menu__item {
+  font-size: 14px;
+}
+
+.theme-menu__button {
+  position: relative;
+  background: transparent;
+  border: none;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  display: block;
+  position: absolute;
+  left: -14px;
+  animation: jump 0.5s ease-in-out infinite alternate;
+}
+
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+  transition: opacity 0.5s;
+  outline: none   ;
+}
+
+.theme-menu__button:focus-visible::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  opacity: 0.6;
+  background: var(--accent-color);
+  transition: opacity 0.5s, width 0.5s;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.content {
+  inline-size: var(--width);
+}
+
+.card {
+  margin-block-start: 100px;
+  background: var(--bg-color);
+  border: 2px solid var(--accent-color);
+}
+
+.card__cover {
+  margin-block-end: 27px;
+}
+
+.card__cover-image {
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__title {
+  display: block;
+  border-block-end: 2px solid var(--accent-color);
+  font-size: 18px;
+  padding: 5px 12px;
+}
+
+.card__content {
+  display: grid;
+  padding-inline: 25px;
+  margin-block-start: -5px;
+  margin-block-end: 25px;
+  gap: 27px;
+  font-size: 18px;
+}
+
+.card__content-paragraph {
+  line-height: 21px;
+}
+
+.card__footer {
+  padding-inline: 25px;
+  margin-block-start: 20px;
+  margin-block-end: 20px;
+  display: flex;
+  justify-content: end;
+
+}
+
+
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+  border: 2px solid var(--accent-color);
+  background: var(--bg-color);
+  font-family: var(--accent-font-family);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button__text {
+  position: relative;
+  z-index: 10;
+}
+
+.footer {
+  inline-size: var(--width);
+  padding: 54px 0 102px 0;
+  display: grid;
+  justify-content: center;
+}
+
+.footer_button {
+  color: var(--text-color);
+  background: var(--bg-color);
+  border: 2px solid var(--accent-color);
+  min-inline-size: 306px;
+  max-inline-size: 335px;
+  font-family: var(--accent-font-family);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+  padding-block: 15px;
+  padding-inline: 14px;
+}
+
+.footer__svg {
+  position: relative;
+  z-index: 10;
+}
+
+@media (width <= 425px) {
+  :root {
+      --width: 100%;
+  }
+
+  .footer_button {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      gap: 8px;
+      padding-block: 15px;
+
+  }
 }
